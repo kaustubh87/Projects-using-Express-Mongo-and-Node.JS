@@ -21,19 +21,31 @@ app.set('view engine', 'ejs');
 
 // Connect to mongodb
 
-MongoClient.connect(url, (err, database) => {
+MongoClient.connect(url, (err, db) => {
     console.log('MongoDb Connected . . .');
     if(err) throw err;
-    
+
+    Todos = db.collection('todos');
+
+
+    app.listen(port, () => {
+        console.log('Server running on ' +port);
+    });
 });
 
 app.get('/', (req, res, next) => {
-    res.render('index');
+    Todos.find({}).toArray((err, todos) => {
+        if(err){
+            return console.log(err);
+        }
+        console.log(todos);
+        res.render('index', {
+            todos: todos
+        });
+    });
 });
 
-app.listen(port, () => {
-    console.log('Server running on ' +port);
-});
+
 
 
 
