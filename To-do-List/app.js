@@ -45,6 +45,23 @@ app.get('/', (req, res, next) => {
     });
 });
 
+app.post('/todo/add', (req,res,next) => {
+    
+    //Create Todo object
+    
+    const todo = {
+        text: req.body.text,
+        body: req.body.body
+    }
+
+    Todos.insert(todo, (err, result) => {
+        if(err) return console.log(err);
+        console.log('Todo Added . . .');
+        res.redirect('/');
+
+    });
+});
+
 
 
 
