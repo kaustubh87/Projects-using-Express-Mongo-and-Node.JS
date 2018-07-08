@@ -60,6 +60,17 @@ app.post('/todo/add', (req,res,next) => {
         res.redirect('/');
 
     });
+
+
+});
+
+app.delete('/todo/delete/:id', (req,res,next) => {
+    const id = req.paramas.id;
+    const query = { 
+        _id : id
+    };
+    
+
 });
 
 
