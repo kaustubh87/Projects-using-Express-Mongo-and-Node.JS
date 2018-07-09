@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const MongoClient = require('mongodb').MongoClient;
+const ObjectID = require('mongodb').ObjectID;
 const url = 'mongodb://localhost:27017/todoapp';
 
 const port = 8089;
@@ -64,13 +65,20 @@ app.post('/todo/add', (req,res,next) => {
 
 });
 
-app.delete('/todo/delete/:id', (req,res,next) => {
-    const id = req.paramas.id;
-    const query = { 
-        _id : id
-    };
+app.delete('/todo/delete/:id', (req, res, next) => {
     
+    const query = { 
+        _id : ObjectID(req.params.id)
+    };
 
+    Todos.deleteOne(query, (err, res)=> {
+        if(err){
+           return console.log(err);
+        }
+        console.log('Deleted');
+        //res.send(200);
+        window.redirect('/');
+    });
 });
 
 
