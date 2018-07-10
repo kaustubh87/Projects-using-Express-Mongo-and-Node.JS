@@ -82,6 +82,25 @@ app.delete('/todo/delete/:id', (req, res, next) => {
 });
 
 
+app.get('/todo/edit/:id', (req, res, next) => {
+    
+    const query = { 
+        _id : ObjectID(req.params.id)
+    };
+    
+    Todos.find(query).next((err, todo) => {
+        if(err){
+            return console.log(err);
+        }
+        //console.log(todos);
+        res.render('edit', {
+            todos: todo
+        });
+    });
+});
+
+
+
 
 
 
