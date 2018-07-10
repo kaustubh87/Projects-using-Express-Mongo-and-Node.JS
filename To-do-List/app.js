@@ -71,13 +71,13 @@ app.delete('/todo/delete/:id', (req, res, next) => {
         _id : ObjectID(req.params.id)
     };
 
-    Todos.deleteOne(query, (err, res)=> {
+    Todos.deleteOne(query, (err, response) => {
         if(err){
            return console.log(err);
         }
         console.log('Deleted');
-        //res.send(200);
-        window.redirect('/');
+        res.send(200);
+        //window.redirect('/');
     });
 });
 
