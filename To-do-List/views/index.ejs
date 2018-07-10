@@ -15,11 +15,10 @@
 <% todos.forEach(function(todo){ %>
     <li><%= todo.text %> - <%= todo.body %> 
     <a data-id="<%= todo._id %>" href="#" class="delete-todo">Delete Todo</a>
-    </li>
-
-    <li>
     <a href="/todo/edit/<%= todo._id %>">Edit Todo</a>
     </li>
+
+    
 <% }) %>
     
 </ul>
