@@ -94,8 +94,30 @@ app.get('/todo/edit/:id', (req, res, next) => {
         }
         //console.log(todos);
         res.render('edit', {
-            todos: todo
+            todo : todo
         });
+    });
+});
+
+app.post('/todo/edit/:id', (req,res,next) => {
+    
+    //Create Todo object
+
+    const query = { 
+        _id : ObjectID(req.params.id)
+    };
+    
+    const todo = {
+        text: req.body.text,
+        body: req.body.body
+    }
+
+    //Update todo
+
+    Todos.updateOne(query, { $set: todo }, (err, result) => {
+        if(err) return console.log(err);
+        console.log('Todo Updated . . .');
+        res.redirect('/');
     });
 });
 
