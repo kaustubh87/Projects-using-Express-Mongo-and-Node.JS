@@ -1,0 +1,16 @@
+{
+  "name": "sports-blog",
+  "version": "1.0.0",
+  "description": "A Sports Blog",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express",
+    "Node",
+    "Mongoose"
+  ],
+  "author": "Kaustubh Vinzanekar",
+  "license": "ISC"
+}
