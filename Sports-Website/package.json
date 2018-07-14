@@ -13,5 +13,16 @@
     "Mongoose"
   ],
   "author": "Kaustubh Vinzanekar",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "mongoose": "*",
+    "pug": "*",
+    "connect-flash": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "moment": "*"
+  }
 }
