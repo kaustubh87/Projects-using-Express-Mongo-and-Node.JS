@@ -4,8 +4,6 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const expressValidator = require('express-validator');
 const flash = require('connect-flash');
-
-
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -16,6 +14,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('connect-flash')());
 
+
+//Express messages
 app.use(function(req, res, next){
     res.locals.messages = require('express-messages')(req, res);
     next();
