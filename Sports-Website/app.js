@@ -20,3 +20,16 @@ app.use(function(req, res, next){
     res.locals.messages = require('express-messages')(req, res);
     next();
 });
+
+// Express Validator
+
+app.use(expressValidator({
+    errorFormatter: function(param, msg, value){
+        var namespace = param.split('.') , root = namespace.shift() , formParam = root;
+    }
+
+    while(namespace.length) {
+        
+    }
+
+}));
